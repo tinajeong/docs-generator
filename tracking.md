@@ -1,4 +1,9 @@
-# Word 파일 POI로 수정하기
+# Word 파일 POI로 생성/수정하기
+- 테이블 분리해서 생성하기
+- 샘플이미지 넣기
+- 머릿글 추가하기
+- 폰트 변경하기
+- PDF로 변환하기
 
 # 환경세팅
 - https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jwyoon25&logNo=221336857782
