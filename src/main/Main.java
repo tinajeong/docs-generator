@@ -1,11 +1,11 @@
 package main;
 
-import org.apache.commons.compress.archivers.sevenz.CLI;
+import org.apache.poi.xwpf.converter.pdf.PdfConverter;
+import org.apache.poi.xwpf.converter.pdf.PdfOptions;
 import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -111,6 +111,7 @@ public class Main {
         FileInputStream fis = new FileInputStream(f.getAbsolutePath());
 
         XWPFDocument document = new XWPFDocument(fis);
+        XWPFHeader header = document.getHeaderArray(0);
         for (XWPFParagraph paragraph : document.getParagraphs()) {
             for(XWPFRun run : paragraph.getRuns()) {
                 if(run.text().contains("고객사명")) {
@@ -162,10 +163,17 @@ public class Main {
         encIvRun.setText(ENC_IV);
 
         String fileName = ORG_NM+".docx";
+        String pdfFileName = ORG_NM+".pdf";
         System.out.println(fileName +" written");
         FileOutputStream out = new FileOutputStream(fileName);
         document.write(out);
         out.close();
+
+//        PdfOptions options = PdfOptions.getDefault();
+//        OutputStream out2 = new FileOutputStream(pdfFileName);
+//        PdfConverter.getInstance().convert(document, out2, options);
+//        out2.close();
+//        convertDocxToPdf(fileName,pdfFileName);
     }
 
     private static XWPFRun setRunDefaultStyle(XWPFRun xwpfRun) {
@@ -177,5 +185,17 @@ public class Main {
         xwpfRun.setFontFamily("Gulim");
 
         return xwpfRun;
+    }
+
+    private static void convertDocxToPdf (String docPath, String pdfPath) {
+        try {
+            InputStream doc = new FileInputStream(docPath);
+            XWPFDocument document = new XWPFDocument(doc);
+            PdfOptions options = PdfOptions.getDefault();
+            OutputStream out = new FileOutputStream(pdfPath);
+            PdfConverter.getInstance().convert(document, out, options);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

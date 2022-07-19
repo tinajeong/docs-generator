@@ -4,6 +4,7 @@
 - 머릿글 추가하기
 - 폰트 변경하기
 - PDF로 변환하기
+- 헤더 텍스트 수정하기
 
 # 환경세팅
 - https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jwyoon25&logNo=221336857782
@@ -37,4 +38,16 @@ C\poi-bin-5.1.0\ooxml-lib\commons-logging-1.2.jar -- CVE 취약점
 C\poi-bin-5.1.0\ooxml-lib\curvesapi-1.06.jar
 C\poi-bin-5.1.0\ooxml-lib\slf4j-api-1.7.32.jar
 C\poi-bin-5.1.0\ooxml-lib\xmlbeans-5.0.2.jar
+```
+
+
+# PDF 변환
+- 의존성 호환이 안되는 이슈가 있는듯
+> Exception in thread "main" java.lang.NoClassDefFoundError: com/lowagie/text/ExceptionConverter
+```
+org.apache.poi.xwpf.converter.pdf-1.0.6.jar
+org.apache.poi.xwpf.converter.core-1.0.6.jar
+ooxml-schemas-1.4.jar
+itext-pdfa-5.5.13.jar
+fr.opensagres.xdocreport.itext.extension-2.0.3.jar
 ```
