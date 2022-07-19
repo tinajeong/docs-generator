@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'dev.tina'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+dependencies {
+    implementation 'org.apache.poi:poi:5.2.2'
+    implementation 'org.apache.poi:poi-ooxml:5.2.2'
+    // https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.poi.xwpf.converter.pdf
+    implementation 'fr.opensagres.xdocreport:fr.opensagres.poi.xwpf.converter.pdf:2.0.3'
+
+}

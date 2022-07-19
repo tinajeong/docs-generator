@@ -41,7 +41,8 @@ C\poi-bin-5.1.0\ooxml-lib\xmlbeans-5.0.2.jar
 ```
 
 
-# PDF 변환
+# Trouble Shooting
+## PDF 변환
 - 의존성 호환이 안되는 이슈가 있는듯
 > Exception in thread "main" java.lang.NoClassDefFoundError: com/lowagie/text/ExceptionConverter
 ```
@@ -51,3 +52,8 @@ ooxml-schemas-1.4.jar
 itext-pdfa-5.5.13.jar
 fr.opensagres.xdocreport.itext.extension-2.0.3.jar
 ```
+## gradle 로 전환해 해결
+
+>https://stackoverflow.com/questions/51440312/docx-to-pdf-converter-in-java/51440649
+
+> April 2022: Works using apache poi version 5.2.2 and the newest version 2.0.3 of fr.opensagres.poi.xwpf.converter.pdf and consorts.

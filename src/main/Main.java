@@ -1,7 +1,7 @@
 package main;
 
-import org.apache.poi.xwpf.converter.pdf.PdfConverter;
-import org.apache.poi.xwpf.converter.pdf.PdfOptions;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.*;
@@ -169,11 +169,11 @@ public class Main {
         document.write(out);
         out.close();
 
-//        PdfOptions options = PdfOptions.getDefault();
-//        OutputStream out2 = new FileOutputStream(pdfFileName);
-//        PdfConverter.getInstance().convert(document, out2, options);
-//        out2.close();
-//        convertDocxToPdf(fileName,pdfFileName);
+        PdfOptions options = PdfOptions.getDefault();
+        OutputStream out2 = new FileOutputStream(pdfFileName);
+        PdfConverter.getInstance().convert(document, out2, options);
+        out2.close();
+        convertDocxToPdf(fileName,pdfFileName);
     }
 
     private static XWPFRun setRunDefaultStyle(XWPFRun xwpfRun) {
